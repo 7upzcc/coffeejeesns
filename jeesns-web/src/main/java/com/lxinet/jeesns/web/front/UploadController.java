@@ -105,12 +105,21 @@ public class UploadController extends BaseController {
 		File baseFile = new File(savePath);
 		File targetFile = new File(baseFile, newFileName);
 
+		File localPath = new File("/var/www/html/upload") ;
+		File localFile = new File(localPath,newFileName) ;
+
 		if (!baseFile.exists()) {
 			baseFile.mkdirs();
+		}
+
+		if(!localPath.exists()){
+			localPath.mkdirs() ;
 		}
 		//保存
 		try {
 			file.transferTo(targetFile);
+
+			file.transferTo(localFile);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
