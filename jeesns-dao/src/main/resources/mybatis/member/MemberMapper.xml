@@ -127,7 +127,7 @@
         update tbl_member set avatar=#{avatar} WHERE id=#{id}
     </update>
 
-    <!-- 注册 -->
+    <!-- 注册   -->
     <insert id="register" parameterType="Member" keyProperty="id" useGeneratedKeys="true">
     insert into tbl_member (name, email, password, avatar, create_time, regip,last_login_time,last_login_ip,curr_login_time,curr_login_ip,invitation_code)
     values (#{name}, #{email}, #{password}, #{avatar}, now(),#{regip},now(),#{regip},now(),#{regip},#{invitationCode})
