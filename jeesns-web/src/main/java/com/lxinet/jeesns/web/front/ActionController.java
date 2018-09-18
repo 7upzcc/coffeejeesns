@@ -1,8 +1,10 @@
 package com.lxinet.jeesns.web.front;
 
+import com.lxinet.jeesns.core.annotation.Before;
 import com.lxinet.jeesns.core.dto.ResultModel;
 import com.lxinet.jeesns.core.model.Page;
 import com.lxinet.jeesns.core.utils.JeesnsConfig;
+import com.lxinet.jeesns.interceptor.UserLoginInterceptor;
 import com.lxinet.jeesns.web.common.BaseController;
 import com.lxinet.jeesns.model.system.ActionLog;
 import com.lxinet.jeesns.service.system.IActionLogService;
@@ -24,6 +26,7 @@ public class ActionController extends BaseController {
     private JeesnsConfig jeesnsConfig;
 
     @RequestMapping("list")
+    @Before(UserLoginInterceptor.class)
     public String list(Model model){
         Page page = new Page(request);
         ResultModel<ActionLog> actionList = actionLogService.memberActionLog(page,0);

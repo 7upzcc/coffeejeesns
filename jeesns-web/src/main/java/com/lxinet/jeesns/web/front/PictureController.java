@@ -127,6 +127,7 @@ public class PictureController extends BaseController {
     }
 
     @RequestMapping(value = {"/picture","/picture/"},method = RequestMethod.GET)
+    @Before(UserLoginInterceptor.class)
     public String index(Model model){
         Member loginMember = MemberUtil.getLoginMember(request);
         int loginMemberId = loginMember == null ? 0 : loginMember.getId();

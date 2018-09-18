@@ -1,6 +1,8 @@
 package com.lxinet.jeesns.web.front;
 
+import com.lxinet.jeesns.core.annotation.Before;
 import com.lxinet.jeesns.core.utils.StringUtils;
+import com.lxinet.jeesns.interceptor.UserLoginInterceptor;
 import com.lxinet.jeesns.service.cms.IArticleService;
 import com.lxinet.jeesns.service.common.IArchiveService;
 import com.lxinet.jeesns.common.utils.EmojiUtil;
@@ -59,6 +61,7 @@ public class IndexController extends BaseController{
     private ILinkService linkService;
 
     @RequestMapping(value={"/", "index"},method = RequestMethod.GET)
+    @Before(UserLoginInterceptor.class)
     public String index(@RequestParam(value = "key",required = false,defaultValue = "") String key, Integer cateid,Model model) {
         Page page = new Page(request);
         if(cateid == null){
