@@ -205,7 +205,13 @@
     </select>
 
 
+    <!-- 获得有效邀请码的列表 -->
     <select id="getActiveInvitationCode" resultType="java.lang.String">
         SELECT code FROM tbl_invitation_code WHERE active = 1
     </select>
+
+    <!-- 标记邀请码失效 -->
+    <update id="InactiveInvitationCode" parameterType="java.lang.String">
+        UPDATE tbl_invitation_code SET active = 0 WHERE code = #{code}
+    </update>
 </mapper>

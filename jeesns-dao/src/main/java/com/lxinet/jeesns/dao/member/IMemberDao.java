@@ -138,4 +138,9 @@ public interface IMemberDao extends IBaseDao<Member> {
      * 获得有效的验证码
      */
     List<String> getActiveInvitationCode() ;
+
+    /**
+     * 将使用过的验证码标记为失效
+     */
+    void inactiveInvitationCode(@Param("code")String code) ;
 }

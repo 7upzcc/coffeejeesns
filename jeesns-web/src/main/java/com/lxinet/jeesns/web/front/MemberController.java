@@ -107,7 +107,7 @@ public class MemberController extends BaseController {
         if(invitationCodeList.indexOf(member.getInvitationCode())<0){
             return new ResultModel(-1,"邀请码无效") ;
         }else{
-            System.out.println("邀请码"+member.getInvitationCode()+"已被使用");
+            memberService.inactiveInvitationCode(member.getInvitationCode());
         }
         return memberService.register(member,request);
     }

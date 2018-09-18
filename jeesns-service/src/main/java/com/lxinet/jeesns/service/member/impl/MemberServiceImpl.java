@@ -525,4 +525,9 @@ public class MemberServiceImpl implements IMemberService {
     public List<String> getActiveInvitationCode() {
         return memberDao.getActiveInvitationCode() ;
     }
+
+    @Override
+    public void inactiveInvitationCode(String code) {
+        memberDao.inactiveInvitationCode(code);
+    }
 }

@@ -186,4 +186,8 @@ public interface IMemberService {
      */
     List<String> getActiveInvitationCode() ;
 
+    /**
+     * 将使用过的验证码标记为失效
+     */
+    void inactiveInvitationCode(String code) ;
 }
