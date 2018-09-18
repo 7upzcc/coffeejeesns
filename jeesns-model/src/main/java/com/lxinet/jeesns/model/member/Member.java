@@ -113,6 +113,9 @@ public class Member implements Serializable {
 	//私信列表
 	private List<Message> messages;
 
+	//邀请码
+	private String invitationCode ;
+
 
 	public Integer getId() {
 		return id;
@@ -393,5 +396,13 @@ public class Member implements Serializable {
 
 	public void setMessages(List<Message> messages) {
 		this.messages = messages;
+	}
+
+	public String getInvitationCode() {
+		return invitationCode;
+	}
+
+	public void setInvitationCode(String invitationCode) {
+		this.invitationCode = invitationCode;
 	}
 }

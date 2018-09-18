@@ -520,4 +520,9 @@ public class MemberServiceImpl implements IMemberService {
         }
         return content;
     }
+
+    @Override
+    public List<String> getActiveInvitationCode() {
+        return memberDao.getActiveInvitationCode() ;
+    }
 }

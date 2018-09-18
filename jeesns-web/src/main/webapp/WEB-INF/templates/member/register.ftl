@@ -63,6 +63,12 @@
                             <input type="password" name="repassword" class="form-control" placeholder="确认密码" data-type="require" data-rule="equal[password]">
                         </div>
                     </div>
+                    <div class="form-group m-b-30">
+                        <label class="col-sm-3">邀请码</label>
+                        <div class="col-md-8 col-sm-10">
+                            <input type="text" name="invitationCode" class="form-control" placeholder="邀请码" data-type="require">
+                        </div>
+                    </div>
                     <div class="form-group m-b-20">
                         <label class="col-sm-3"></label>
                         <div class="col-md-8 col-sm-10">

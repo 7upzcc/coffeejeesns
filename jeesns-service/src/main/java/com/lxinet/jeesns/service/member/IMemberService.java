@@ -179,4 +179,11 @@ public interface IMemberService {
 
     String atFormat(String content);
 
+
+    /**
+     * 获得有效的邀请码
+     * @return
+     */
+    List<String> getActiveInvitationCode() ;
+
 }

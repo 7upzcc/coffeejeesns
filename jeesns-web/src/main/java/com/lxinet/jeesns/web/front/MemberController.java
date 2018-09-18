@@ -22,6 +22,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -98,6 +99,15 @@ public class MemberController extends BaseController {
         }
         if(!member.getPassword().equals(repassword)){
             return new ResultModel(-1,"两次密码输入不一致");
+        }
+        if(StringUtils.isEmpty(member.getInvitationCode())){
+            return new ResultModel(-1,"你必须输入邀请码") ;
+        }
+        List<String> invitationCodeList = memberService.getActiveInvitationCode() ;
+        if(invitationCodeList.indexOf(member.getInvitationCode())<0){
+            return new ResultModel(-1,"邀请码无效") ;
+        }else{
+            System.out.println("邀请码"+member.getInvitationCode()+"已被使用");
         }
         return memberService.register(member,request);
     }

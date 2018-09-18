@@ -132,4 +132,10 @@ public interface IMemberDao extends IBaseDao<Member> {
      * @return
      */
     int updateScore(@Param("score") Integer score, @Param("id") Integer id);
+
+
+    /**
+     * 获得有效的验证码
+     */
+    List<String> getActiveInvitationCode() ;
 }
